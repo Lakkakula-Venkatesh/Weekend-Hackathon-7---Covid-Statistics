@@ -30,7 +30,7 @@ app.get('/totalActive', (req, res) => {
     res.send({
         data: {
             _id: "total",
-            recovered: activeCount
+            active: activeCount
         }
     });
     return;
@@ -44,7 +44,7 @@ app.get('/totalDeath', (req, res) => {
     res.send({
         data: {
             _id: "total",
-            recovered: deathCount
+            death: deathCount
         }
     });
     return;
@@ -80,7 +80,7 @@ app.get('/healthyStates', (req, res) => {
         if(death / infected < 0.005) {
             let obj = {};
             obj.state = item.state;
-            obj.rate = roundTo(death / infected, 5);
+            obj.mortality = roundTo(death / infected, 5);
             healthyStates.push(obj);
         }
     });
